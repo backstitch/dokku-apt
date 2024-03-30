@@ -111,6 +111,7 @@ fi
 if [ -f $DIR/apt-packages ]; then
     PACKAGES=\$(cat "$DIR/apt-packages" | tr "\\n" " ")
     echo "-----> Updating package list"
+    add-apt-repository -y "deb https://apt-archive.postgresql.org/ jessie-pgdg wheezy-pgdg eoan-pgdg disco-pgdg trusty-pgdg precise-pgdg"
     apt-get update >/dev/null
     echo "-----> Injecting packages: \$PACKAGES"
     apt-get install -y \$PACKAGES
